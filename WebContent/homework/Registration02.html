@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration02.html</title>
+
+    <style>
+        *{font-family: "고딕"; font-size:10pt;}
+        table{
+            width: 650px;
+            border: 1pt solid black;
+            padding-left:30px;
+            padding-right:50px;
+            border-spacing:5px 10px;
+        }
+        /* tr{
+            
+        } */
+        th{
+            font-weight: bold;
+            /* border: 1pt solid red; */
+            padding:10px;
+            width:22%;
+            text-align:left;
+            vertical-align: top;
+        }
+        td{
+            /* border: 1pt solid red; */
+            vertical-align: top;
+        }
+        .textTop{padding-bottom: 5%;}
+        /* td, th{border: 1pt solid black;} */
+        .inputText{
+            border: 1pt solid silver;
+            padding:7px;
+            margin:5px;
+            /* height:30px; */
+            width:70%
+        }
+        /* .input2{
+            border: 1pt solid silver;
+            padding:7px;
+            width:35%;
+        } */
+        .smallBtn{
+            width:35px;
+        }
+        button{
+            padding:7px;
+            padding-bottom: 7px;
+            border-radius: 1px;
+            background-color:rgb(49, 49, 49);
+            border:1px solid silver;
+            text-decoration: none; color:white;
+            outline:0;
+        }
+        span{
+            font-weight:normal;
+            font-size:8pt;
+            text-decoration: none; color: rgb(73, 72, 72);
+        }
+        .star{
+            vertical-align: top;
+            text-decoration: none; color: red;
+            font-weight: bolder;
+        }
+        .calendar{
+            width:50px;
+            height:40px; 
+            vertical-align: bottom;
+            margin-left:-15px; 
+            margin-bottom:2px;
+        }
+        .checkbox input{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th class="textTop">
+                <span class="star">* </span> 아이디</th>
+            <td>
+                <input class="inputText" type="text" />
+                <button>중복확인</button>   <br>
+                <span>
+                    ※ 3~15자의 영문과 숫자만 가능합니다.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th class="textTop"><span class="star">* </span>비밀번호</th>
+            <td>
+                <input class="inputText" type="text" />    <br>
+                <span>
+                    ※ 영문/숫자/특수문자 조합 6~20자 이상 입력해주세요.(아이디/전화번호 사용 불가) <br>
+                    ※ 1234** 비밀번호는 홈페이지 사용에 제한됩니다.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="star">* </span>비밀번호 확인</th>
+            <td><input class="inputText" type="text" /></td>
+        </tr>
+        <tr>
+            <th><span class="star">* </span>이름</th>
+            <td>
+                <input class="inputText" type="text" />
+                <button class="smallBtn">여</button>
+                <button class="smallBtn">남</button>   <br>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="star">* </span>생년월일</th>
+            <td><input class="inputText" type="text"  style="width:35%;" /></td>
+        </tr>
+        <tr>
+            <th class="smallBtn"><span class="star">* </span>주소</th>
+            <td>
+                <input class="inputText" type="text" style="width:20%;"/>
+                <button>우편번호찾기</button>
+                <br>
+                <input class="inputText" type="text" style="width:40%;"/>
+                <input class="inputText" type="text" style="width:30%;"/>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="star">* </span>이메일</th>
+            <td>
+                <input class="inputText" type="text" style="width:25%;"/>
+                @
+                <input class="inputText" type="text" style="width:25%;"/>
+                <select name="email" style="padding:7px;">
+                    <option value="direct">직접입력</option>
+                    <option value="naver">naver.com</option>
+                    <option value="daum">hanmail.net</option>
+                    <option value="nate">nate.com</option>
+                    <option value="gmail">gmail.com</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><span class="star">* </span>휴대폰번호</th>
+            <td>
+                <select name="phone" style="padding:7px; width:20%;">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="018">018</option>
+                </select>
+                -<input class="inputText" type="text" style="width:20%;"/>
+                -<input class="inputText" type="text" style="width:20%;"/>
+            </td>
+        </tr>
+        <tr>
+            <th>전화번호</th>
+            <td>
+                <select name="tell" style="padding:7px; width:20%;">
+                    <option value="070">070</option>
+                    <option value="02">02</option>
+                    <option value="031">031</option>
+                    <option value="041">041</option>
+                    <option value="053">053</option>
+                </select>
+                -<input class="inputText" type="text" style="width:20%;"/>
+                -<input class="inputText" type="text" style="width:20%;"/>
+            </td>
+        </tr>
+        <tr>
+            <th>출판계약일</th>
+            <td>
+                <input class="inputText" type="text" style="width:40%;"/>
+                <input class="calendar" type="image" src="../images/calendar.png" 
+                    "/>
+            </td>
+        </tr>
+        <tr>
+            <th>출판종료일</th>
+            <td>
+                <input class="inputText" type="text" style="width:40%;"/>
+                <input class="calendar" type="image" src="../images/calendar.png" 
+                    style="width:50px;height:40px; vertical-align: bottom;"/>
+            </td>
+        </tr>
+        <tr>
+            <th>선택정보</th>
+            <td class="checkbox">
+                <input type="checkbox" name="inter" value="pol" />자비출판
+                <input type="checkbox" name="inter" value="eco" />반기획출판
+                <input type="checkbox" name="inter" value="ent" />프리미엄출판
+                <input type="checkbox" name="inter" value="spo" />출판컨설팅
+                <br>
+                <input type="checkbox" name="inter" value="ent" />기획출판
+                <input type="checkbox" name="inter" value="spo" />미정
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

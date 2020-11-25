@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <style>
+        #table{
+            margin:0; padding:0;
+            text-align:center;
+            background-color:silver;
+            border:1px solid silver;
+            width:300px;
+            height:400px;
+            color:white;
+            font-size: 15pt;
+            border-radius:10px 10px 10px 10px;
+            border-spacing:4px 4px;
+        }
+        td{
+            width:25%;
+        }
+        button{
+            background-color:transparent;
+            width:100%;
+            height:100%;
+            border:1px;
+            color:white;
+            font-size: 15pt;
+            border-radius:10px 10px 10px 10px;
+            outline: none;
+        }
+          
+        .number button{
+            background-color: rgb(46, 46, 46);
+        }
+        .operator button{
+            background-color:orange;
+        }
+        .gray button{
+            background-color:gray;
+        }
+        .display td{
+            background-color:#70C738;
+            height:20%;
+            text-align: right;
+            padding-right: 15px;
+            text-decoration:none; color:black;
+            font-size:25pt;
+            border-radius:10px 10px 10px 10px;
+        }
+
+        .gray button:active, .number button:active {
+            background-color: #232421b7;
+        }
+        .operator button:active {
+            background-color: rgb(235, 180, 78);
+        }
+    </style>
+    <script>
+        var str = "";
+        
+        function button(obj){
+            var input = obj.innerHTML;
+            setDisplay(input);
+        }
+
+        function setDisplay(input){
+
+            if(input != "BackSpace"){
+                str += input;
+            }
+            else if(input == "BackSpace"){
+                str = str.substr(0, str.length -1)
+            }
+            if(input == "C"){
+                str = ""
+            }
+
+            document.getElementById("display").innerHTML = str;
+        }
+        
+    </script>
+</head>
+<body>
+    <h2>계산기 Ver1.0</h2>
+
+    <table id="table" >
+        <tr class="display">
+            <td colspan="4" ><span id="display"></span></td>
+        </tr>
+        <tr class="gray">
+            <td colspan="2" id="rect"><button onclick="button(this);">BackSpace</button></td>
+            <td colspan="2"><button onclick="button(this);">C</button></td>
+        </tr>
+        <tr class="number">
+            <td><button onclick="button(this);">1</button></td>
+            <td><button onclick="button(this);">2</button></td>
+            <td><button onclick="button(this);">3</button></td>
+            <td class="operator"><button onclick="button(this);">/</button></td>
+        </tr>
+        <tr class="number">
+            <td><button onclick="button(this);">4</button></td>
+            <td><button onclick="button(this);">5</button></td>
+            <td><button onclick="button(this);">6</button></td>
+            <td class="operator"><button onclick="button(this);">x</button></td>
+        </tr>
+        <tr class="number">
+            <td><button onclick="button(this);">7</button></td>
+            <td><button onclick="button(this);">8</button></td>
+            <td><button onclick="button(this);">9</button></td>
+            <td class="operator"><button onclick="button(this);">+</button></td>
+        </tr>
+        <tr class="number">
+            <td><button onclick="button(this);">=</button></td>
+            <td><button onclick="button(this);">0</button></td>
+            <td><button onclick="button(this);">.</button></td>
+            <td class="operator"><button onclick="button(this);">-</button></td>
+        </tr>
+    </table>
+</body>
+</html>

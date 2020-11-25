@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpDownGame.html</title>
+
+    <style>
+        .wrap_game{
+            width: 50%;
+            padding-left:40px;
+            padding-right:40px;
+            border:3px solid pink;
+            border-radius:20px 20px 20px 20px;
+        }
+        .image {width:100%; padding-bottom : 30px; padding-top:20px;}
+        .image img {
+            width:100%;
+            height:100%;border-radius:20px 20px 20px 20px;
+        }
+        span {
+            font-size:40pt;
+        }
+    </style>
+
+
+    
+    
+</head>
+<body>
+    
+
+
+    <div>
+        <h1 style="padding-left:170px;">업다운게임</h1><br><br>
+    <div class="wrap_game">
+        <h3>1~100사이의 숫자를 입력하세요</h3>
+        <h2>시도횟수 : <span id="count">0</span>회</h2>
+        숫자입력 :
+        <input type="text" id="input" autofocus>
+        <button onclick="ok();">확인</button>
+        <button id = "renewal" onclick="f5();">새로고침</button>
+        <br>
+        <div class="image">
+            <img id="image" src="./images/updowngame.jpg" alt="업다운게임">
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var renewal = document.getElementById("renewal");
+        renewal.style.visibility="hidden";
+        var count = 0;
+        var answer = parseInt(Math.random()*100 + 1);
+        var input = document.getElementById("input");
+        console.log("난수 : " + answer);
+
+        function ok(){
+            var image = document.getElementById("image");
+            var num = input.value;
+
+
+            countTest();
+
+            if(inputTest(num)){
+
+                if(num == answer){
+                    image.src = "./images/answer.jpeg";
+                    console.log("정답");
+                    renewal.style.visibility="visible";
+                }
+                else if(num > answer){
+                    image.src = "./images/down.jpg";
+                    console.log("작아");
+                }
+                else if(num < answer){
+                    image.src = "./images/up.jpg";
+                    console.log("커");
+                }
+                countUp();
+            }
+
+
+            input.value = "";
+            input.focus();
+        }
+
+        function countUp(){
+            count++;
+            console.log(count);
+            document.getElementById("count").innerHTML = count;
+        }
+
+        function countTest(){
+            if(count >= 7){
+                if(!alert("시도횟수가 초과하였습니다. 게임을 재시작 합니다."))
+                {
+                    location.reload();
+                }
+            }
+        }
+
+        function inputTest(num){
+            if(num == "" || isNaN(num)){
+                alert("1~100 사이의 정수를 입력해주세요.");
+                return false;
+            }
+
+            var numInt = parseInt(num);
+            if(numInt < 1 || numInt > 100){
+                alert("1~100 사이의 정수를 입력해주세요.");
+                return false;
+            }
+
+            
+            return true;
+        }
+
+        function f5(){
+            location.reload();
+        }
+
+    </script>
+
+
+</body>
+</html>
